@@ -17,11 +17,11 @@
                         <div class="col-lg-12">
                             <?php 
                                 echo validation_errors('<div class="alert alert-danger">','</div>');
-                                echo form_open('admin/usuarios/inserir');
+                                echo form_open('admin/publicacao/inserir');
                             ?>
                             <div class="form-group">
                                     <label id="select-categoria">Categorias</label>
-                                    <select class="form-control">
+                                    <select id="select-categoria" name="select-categoria" class="form-control">
                                         <?php foreach ($categorias as $categoria) { ?>
                                             <option value="<?php echo $categoria->id ?>"><?php echo $categoria->titulo ?></option>
                                         <?php } ?>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                     <label id="txt-data">Data</label>
-                                    <input type="datatime-local" id="txt-data" name="txt-data" class="form-control" placeholder="Digite o login do usuário..." value="<?php echo set_value('txt-data') ?>">
+                                    <input type="datetime-local" id="txt-data" name="txt-data" class="form-control" placeholder="Digite o login do usuário..." value="<?php echo set_value('txt-data') ?>">
                             </div>
                             <input type="hidden" name="txt-usuario" id="txt-usuario" value="<?php echo $this->session->userdata('userlogado')->id; ?>">
     

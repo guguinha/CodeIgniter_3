@@ -70,14 +70,18 @@
                         <div class="col-lg-12">
                         <style>
                             img{
-                                width: 60px;
+                                width: 240px;
                             }
                         </style>
                             <?php 
                                 $this->table->set_heading("Foto","Titulo","Data","Alterar","Excluir");
                                 foreach($publicacoes as $publicacao){
                                     $titulo = $publicacao->titulo;
-                                    $fotopub = "foto";
+                                    if($publicacao->img == 1){
+                                        $fotopub = img("assets/frontend/img/publicacao/".md5($publicacao->id).".jpg"); 
+                                    }else{
+                                        $fotopub = img("assets/frontend/img/semFoto2.png"); 
+                                    }                                    
                                     $data = postadoem($publicacao->data);
                                     $alterar = anchor(base_url('admin/publicacao/alterar/'.md5($publicacao->id)),'<i class="fa fa-refresh fa-fw"></i> Alterar');
                                     $excluir = anchor(base_url('admin/publicacao/excluir/'.md5($publicacao->id)),'<i class="fa fa-remove fa-fw"></i> Excluir');

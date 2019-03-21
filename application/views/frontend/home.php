@@ -22,8 +22,16 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo postadoem($destaque->data) ?></p>
                 <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <?php 
+                    if($destaque->img == 1){
+                        $fotopub = base_url("assets/frontend/img/publicacao/".md5($destaque->id).".jpg"); 
+                ?>
+                <img class="img-responsive" src="<?= $fotopub ?>" alt="">
                 <hr>
+                <?php
+                    }    
+                ?>                
+
                 <p><?php echo $destaque->subtitulo ?></p>
                 <a class="btn btn-primary" href="<?php echo base_url('postagem/'.$destaque->id.'/'.limpar($destaque->titulo)) ?>"><?php echo $destaque->titulo ?>">Leia mais <span class="glyphicon glyphicon-chevron-right"></span></a>
 

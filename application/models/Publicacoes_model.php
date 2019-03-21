@@ -92,4 +92,10 @@ class Publicacoes_model extends CI_Model {
 		return $this->db->update('postagens',$dados);
 	}
 
+		public function alterar_img($id){
+		$dados['img'] = 1;
+		$this->db->where('md5(id)',$id);
+		return $this->db->update('postagens',$dados);
+	}
+
 }

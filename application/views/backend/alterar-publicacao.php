@@ -12,6 +12,9 @@
                 <div class="panel-heading">
                    <?= 'Alterar dados do '.$subtitulo ?>
                 </div>
+                <style type="text/css">
+                    img{width: 400px;};
+                </style>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">

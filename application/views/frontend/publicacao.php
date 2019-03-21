@@ -18,8 +18,15 @@
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo postadoem($destaque->data) ?></p>
                 <hr>
                 <p><i><?php echo $destaque->subtitulo ?></i></p>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <?php 
+                    if($destaque->img == 1){
+                        $fotopub = base_url("assets/frontend/img/publicacao/".md5($destaque->id).".jpg"); 
+                ?>
+                <img class="img-responsive" src="<?= $fotopub ?>" alt="">
                 <hr>
+                <?php
+                    }    
+                ?> 
                 <p><?php echo $destaque->conteudo ?></p>
                 <hr>
 

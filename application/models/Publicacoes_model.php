@@ -62,6 +62,11 @@ class Publicacoes_model extends CI_Model {
 		return $this->db->get('postagens')->result();
 	}
 
+	public function listar_publicacao($id){
+		$this->db->where('md5(id)',$id);
+		return $this->db->get('postagens')->result();
+	}
+
 	public function adicionar($titulo,$subtitulo,$conteudo,$datapub,$categoria,$userpub){
 		$dados['titulo'] = $titulo;
 		$dados['subtitulo'] = $subtitulo;

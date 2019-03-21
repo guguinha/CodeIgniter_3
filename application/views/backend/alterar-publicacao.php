@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <?php 
                                 echo validation_errors('<div class="alert alert-danger">','</div>');
-                                echo form_open('admin/publicacao/alterar');
+                                echo form_open('admin/publicacao/salvar_alteracoes');
                                 foreach($publicacoes as $publicacao){
                             ?>
                             <div class="form-group">
@@ -45,7 +45,7 @@
                                     <label id="txt-data">Data</label>
                                     <input type="datetime-local" id="txt-data" name="txt-data" class="form-control" placeholder="Digite o login do usuário..." value="<?php echo strftime('%Y-%m-%dT%H:%M:%S', strtotime($publicacao->data)); ?>">
                             </div>
-    
+                            <input type="hidden" name="txt-id" value="<?php echo $publicacao->id; ?>"></div>    
                             <button type="submit" class="btn btn-default">Salvar Alterações</button>
                             <?php
                                 echo form_close();

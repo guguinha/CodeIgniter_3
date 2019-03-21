@@ -79,14 +79,20 @@ class Publicacao extends CI_Controller {
 
 	public function salvar_alteracoes(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('txt-categoria','Nome da Categoria','required|min_length[3]|is_unique[categoria.titulo]');
+		$this->form_validation->set_rules('txt-titulo','Titulo','required|min_length[3]');
+		$this->form_validation->set_rules('txt-subtitulo','Subtitulo','required|min_length[3]');
+		$this->form_validation->set_rules('txt-conteudo','Conteudo','required|min_length[20]');
 		if($this->form_validation->run() == FALSE){
-			$this->index();
+			$this->alterar();
 		}else{
-			$titulo = $this->input->post('txt-categoria');
+			$titulo = $this->input->post('txt-titulo');
+			$subtitulo = $this->input->post('txt-subtitulo');
+			$conteudo = $this->input->post('txt-conteudo');
+			$datapub = $this->input->post('txt-data');
+			$categoria =$this->input->post('select-categoria');
 			$id = $this->input->post('txt-id');
-			if($this->modelcategorias->alterar($titulo,$id)){
-				redirect(base_url('admin/categoria'));
+			if($this->modelpublicacao->alterar($titulo,$subtitulo,$conteudo,$datapub,$categoria,$id)){
+				redirect(base_url('admin/publicacao'));
 			}else{
 				echo "Houve um erro no sistema!";
 			}

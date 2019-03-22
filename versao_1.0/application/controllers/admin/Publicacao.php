@@ -15,6 +15,7 @@ class Publicacao extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->helper('funcoes_helper');
 		$this->load->library('table');
 		//Dados a serem enviados para o cabeçalho
 		$dados['titulo'] = 'Painel de Controle';

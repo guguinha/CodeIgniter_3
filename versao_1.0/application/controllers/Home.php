@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->helper('funcoes_helper');
 		$dados['categorias'] = $this->categorias;
 		$this->load->model('publicacoes_model','modelpublicacoes');
 		$dados['postagem'] = $this->modelpublicacoes->destaques_home();

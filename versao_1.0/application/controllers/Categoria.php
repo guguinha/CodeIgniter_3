@@ -13,6 +13,7 @@ class Categoria extends CI_Controller {
 
 	public function index($id,$slug=null)
 	{
+		$this->load->helper('funcoes_helper');
 		$dados['categorias'] = $this->categorias;
 		$this->load->model('publicacoes_model','modelpublicacoes');
 		$dados['postagem'] = $this->modelpublicacoes->categoria_pub($id);

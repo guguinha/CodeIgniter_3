@@ -16,9 +16,12 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <?php 
-                                echo validation_errors('<div class="alert alert-danger">','</div>');
+                                if(isset($msg) and $msg == "usuario"){
+                                    echo validation_errors('<div class="alert alert-danger">','</div>');
+                                }
+                                echo form_open('admin/usuarios/salvar_alteracoes');
+
                                 foreach($usuarios as $usuario){
-                                echo form_open('admin/usuarios/salvar_alteracoes/'.md5($usuario->id));
                             ?>
                             <div class="form-group">
                                     <label id="txt-nome">Nome do Usuário</label>
@@ -102,7 +105,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <?php 
-                                echo validation_errors('<div class="alert alert-danger">','</div>');
+                                if(isset($msg) and $msg == "senha"){
+                                    echo validation_errors('<div class="alert alert-danger">','</div>');
+                                }
                                 echo form_open('admin/usuarios/salvar_nova_senha');
 
                                 //foreach($usuarios as $usuario){

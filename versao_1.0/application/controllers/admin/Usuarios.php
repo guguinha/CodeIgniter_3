@@ -105,7 +105,8 @@ class Usuarios extends CI_Controller {
 			$this->form_validation->set_rules('txt-user','Login','required|min_length[3]|is_unique[usuario.user]');
 		}
 		if($this->form_validation->run() == FALSE){
-			$this->alterar(md5($id));
+			$msg="usuario";
+			$this->alterar(md5($id),$msg);
 		}else{
 			$nome = $this->input->post('txt-nome');
 			$email = $this->input->post('txt-email');
@@ -132,7 +133,8 @@ class Usuarios extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			//$this->index();
 			//$id = $this->input->post('txt-id');
-			$this->alterar(md5($id));
+			$msg="senha";
+			$this->alterar(md5($id),$msg);
 		}else{			
 			$senha = $this->input->post('txt-senha');
 			//$id = $this->input->post('txt-id');

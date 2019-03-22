@@ -1,5 +1,6 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 function limpar($string){
 	$table = array(
         '/'=>'', '('=>'', ')'=>'',

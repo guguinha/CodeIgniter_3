@@ -74,7 +74,7 @@
                             }
                         </style>
                             <?php 
-                                $this->table->set_heading("Foto","Titulo","Data","Alterar","Excluir");
+                                $this->table->set_heading("Foto","Titulo","Data","Ver Publicação","Alterar","Excluir");
                                 foreach($publicacoes as $publicacao){
                                     $titulo = $publicacao->titulo;
                                     if($publicacao->img == 1){
@@ -83,10 +83,11 @@
                                         $fotopub = img("assets/frontend/img/semFoto2.png"); 
                                     }                                    
                                     $data = postadoem($publicacao->data);
-                                    $alterar = anchor(base_url('admin/publicacao/alterar/'.md5($publicacao->id)),'<i class="fa fa-refresh fa-fw"></i> Alterar');
-                                    $excluir = anchor(base_url('admin/publicacao/excluir/'.md5($publicacao->id)),'<i class="fa fa-remove fa-fw"></i> Excluir');
+                                    $verPub = anchor(base_url('postagem/'.md5($publicacao->id).'/'.$titulo),'<i class="fas fa-eye"></i>');
+                                    $alterar = anchor(base_url('admin/publicacao/alterar/'.md5($publicacao->id)),'<i class="fa fa-refresh fa-fw"></i>');
+                                    $excluir = anchor(base_url('admin/publicacao/excluir/'.md5($publicacao->id)),'<i class="fa fa-remove fa-fw"></i>');
 
-                                    $this->table->add_row($fotopub,$titulo,$data,$alterar,$excluir);
+                                    $this->table->add_row($fotopub,$titulo,$data,$verPub,$alterar,$excluir);
                                 }
                                 $this->table->set_template(array(
                                     'table_open' => '<table class="table table-striped">'

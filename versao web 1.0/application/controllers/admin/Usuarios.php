@@ -150,7 +150,7 @@ class Usuarios extends CI_Controller {
 		if(!$this->session->userdata('logado')){
 			redirect(base_url('admin/login'));
 		}
-		$this->load->model('usuarios_model','modelusuarios');
+		$this->load->model('Usuarios_model','modelusuarios');
 		$id = $this->input->post('id');
 		$config['upload_path']= './assets/frontend/img/usuarios';
 		$config['allowed_types']= 'jpg';

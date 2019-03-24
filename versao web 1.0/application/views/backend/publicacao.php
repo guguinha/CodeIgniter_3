@@ -83,7 +83,7 @@
                                         $fotopub = img("assets/frontend/img/semFoto2.png"); 
                                     }                                    
                                     $data = postadoem($publicacao->data);
-                                    $verPub = anchor(base_url('postagem/'.md5($publicacao->id).'/'.$titulo),'<i class="fas fa-eye"></i>');
+                                    $verPub = anchor(base_url('postagem/'.$publicacao->id.'/'.$titulo),'<i class="fa fa-search"></i>');
                                     $alterar = anchor(base_url('admin/publicacao/alterar/'.md5($publicacao->id)),'<i class="fa fa-refresh fa-fw"></i>');
                                     $excluir = anchor(base_url('admin/publicacao/excluir/'.md5($publicacao->id)),'<i class="fa fa-remove fa-fw"></i>');
 

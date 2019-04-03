@@ -13,14 +13,26 @@ class Publicacao extends CI_Controller {
 		$this->categorias = $this->modelcategorias->listar_categorias();
 	}
 
-	public function index()
+	public function index($pular=null,$post_por_pagina=null)
 	{
 		$this->load->library('table');
+		$this->load->library('pagination');
+
+		$config['base_url'] = base_url("admin/publicacao");
+		$config['total_rows'] = $this->modelpublicacao->contar();
+		$post_por_pagina = 5;
+		$config['per_page'] = $post_por_pagina;
+
+
+		$this->pagination->initialize($config);
+
+		$dados['links_paginacao'] = $this->pagination->create_links();
+
 		//Dados a serem enviados para o cabeçalho
 		$dados['titulo'] = 'Painel de Controle';
 		$dados['subtitulo'] = 'Publicações';
 		$dados['categorias'] = $this->categorias;
-		$dados['publicacoes'] = $this->modelpublicacao->listar_publicacoes();
+		$dados['publicacoes'] = $this->modelpublicacao->listar_publicacoes($pular,$post_por_pagina);
 
 		$this->load->view('backend/template/html-header',$dados);
 		$this->load->view('backend/template/template');

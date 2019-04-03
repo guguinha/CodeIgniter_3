@@ -57,8 +57,14 @@ class Publicacoes_model extends CI_Model {
 		return $this->db->get()->result();
 	}
 
-	public function listar_publicacoes(){
+	public function listar_publicacoes($pular = null,$post_por_pagina = null){
 		$this->db->order_by('data','DESC');
+		if($pular && $post_por_pagina){
+			$this->db->limit($post_por_pagina,$pular);
+		}else{
+			$this->db->limit(5);
+		}
+
 		return $this->db->get('postagens')->result();
 	}
 
@@ -96,6 +102,10 @@ class Publicacoes_model extends CI_Model {
 		$dados['img'] = 1;
 		$this->db->where('md5(id)',$id);
 		return $this->db->update('postagens',$dados);
+	}
+
+	public function contar(){
+		return $this->db->count_all('postagens');
 	}
 
 }

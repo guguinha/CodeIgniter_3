@@ -60,7 +60,7 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-6 -->
-        <div class="col-lg-12">
+        <div class="col-lg-12" id="pagination">
             <div class="panel panel-default">
                 <div class="panel-heading">
                    <?= 'Alterar '.$subtitulo.' Existente' ?>
@@ -92,6 +92,7 @@
                                     'table_open' => '<table class="table table-striped">'
                                 ));
                                 echo $this->table->generate();
+                                echo "<div class='paginacao'>".$links_paginacao."</div>";
                             ?>
                         </div>
                         

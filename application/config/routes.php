@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['categoria/(:num)/(:any)'] = 'categoria/index/$1/$2';
+$route['categoria/(:num)/(:any)/(:num)'] = 'categoria/index/$1/$2/$3';
 $route['postagem/(:num)/(:any)'] = 'postagens/index/$1/$2';
 $route['autor/(:num)/(:any)'] = 'sobrenos/autores/$1/$2';
 $route['admin/login'] = 'admin/usuarios/pag_login';

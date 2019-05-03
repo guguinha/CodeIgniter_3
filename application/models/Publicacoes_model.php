@@ -108,4 +108,9 @@ class Publicacoes_model extends CI_Model {
 		return $this->db->count_all('postagens');
 	}
 
+	public function contar1($id){
+		$this->db->where('categoria ='.$id)
+		return $this->db->count_all_result('postagens');
+	}
+
 }

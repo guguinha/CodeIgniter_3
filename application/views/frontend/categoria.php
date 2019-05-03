@@ -50,6 +50,7 @@
 
                 <?php 
                     }
+                    echo "<div class'paginacao'>".$links_paginacao."</div>";
                 ?>
                 
 

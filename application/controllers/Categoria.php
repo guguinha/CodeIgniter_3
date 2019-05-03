@@ -17,7 +17,7 @@ class Categoria extends CI_Controller {
 	 	$this->load->library('pagination');
 
 		$config['base_url'] = base_url("categoria/".$id.'/'.$nome);
-		$config['total_rows'] = $this->modelpublicacao->contar1($id);
+		$config['total_rows'] = $this->modelpublicacoes->contar1($id);
 		$post_por_pagina = 2;
 		$config['per_page'] = $post_por_pagina;
 

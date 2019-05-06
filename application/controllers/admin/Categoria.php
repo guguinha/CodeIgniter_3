@@ -12,13 +12,14 @@ class Categoria extends CI_Controller {
 		$this->categorias = $this->modelcategorias->listar_categorias();
 	}
 
-	public function index()
+	public function index($publicado = null)
 	{
 		$this->load->library('table');
 		//Dados a serem enviados para o cabeçalho
 		$dados['titulo'] = 'Painel de Controle';
 		$dados['subtitulo'] = 'Categoria';
 		$dados['categorias'] = $this->categorias;
+		$dados['publicado'] = $publicado;
 
 		$this->load->view('backend/template/html-header',$dados);
 		$this->load->view('backend/template/template');
@@ -35,7 +36,7 @@ class Categoria extends CI_Controller {
 		}else{
 			$titulo = $this->input->post('txt-categoria');
 			if($this->modelcategorias->adicionar($titulo)){
-				redirect(base_url('admin/categoria'));
+				redirect(base_url('admin/categoria/1'));
 			}else{
 				echo "Houve um erro no sistema!";
 			}

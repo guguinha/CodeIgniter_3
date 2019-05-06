@@ -16,6 +16,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <?php 
+                            if($publicado == 1){
+                                echo '<div class="alert alert-success"> Categoria Publicada! </div>';
+                            }
                                 echo validation_errors('<div class="alert alert-danger">','</div>');
                                 echo form_open('admin/categoria/inserir');
                             ?>

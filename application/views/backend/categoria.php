@@ -50,12 +50,14 @@
                         <div class="col-lg-12">
                             <?php 
                                 $this->table->set_heading("Nome da Categoria","Alterar","Excluir");
+                                $modal = array();
+                                $i=0;
                                 foreach($categorias as $categoria){
                                     $nomecat = $categoria->titulo;
                                     $alterar = anchor(base_url('admin/categoria/alterar/'.md5($categoria->id)),'<i class="fa fa-refresh fa-fw"></i> Alterar');
                                     $excluir= '<button type="button" class="btn btn-link" data-toggle="modal" data-target=".excluir-modal-'.$categoria->id.'"><i class="fa fa-remove fa-fw"></i> Excluir</button>';
 
-                                    echo $modal= ' <div class="modal fade excluir-modal-'.$categoria->id.'" tabindex="-1" role="dialog" aria-hidden="true">
+                                    $modal[$i]= ' <div class="modal fade test excluir-modal-'.$categoria->id.'" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
 
@@ -77,6 +79,7 @@
                                             </div>
                                         </div>
                                     </div>';
+                                    $i++;
 
                                     $this->table->add_row($nomecat,$alterar,$excluir);
                                 }
@@ -100,32 +103,11 @@
 </div>
 <!-- /#page-wrapper -->
 
-<!-- 
-    <form role="form">
-                                <div class="form-group">
-                                    <label>Titulo</label>
-                                    <input class="form-control" placeholder="Entre com o texto">
-                                </div>
-                                <div class="form-group">
-                                    <label>Foto Destaque</label>
-                                    <input type="file">
-                                </div>
-                                <div class="form-group">
-                                    <label>Conteúdo</label>
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label>Selects</label>
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-default">Cadastrar</button>
-                                <button type="reset" class="btn btn-default">Limpar</button>
-                            </form>
--->
+<div>
+    <?php
+    foreach($modal as $mod){
+    echo $mod;
+        
+    }
+    ?>
+</div>

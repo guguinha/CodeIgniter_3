@@ -59,3 +59,4 @@ $route['autor/(:num)/(:any)'] = 'sobrenos/autores/$1/$2';
 $route['admin/login'] = 'admin/usuarios/pag_login';
 $route['admin/publicacao/(:num)'] = 'admin/publicacao/index/$1';
 $route['admin/categoria/(:num)'] = 'admin/categoria/index/$1';
+$routs['contato/(:num'] = 'contato/index/$1';

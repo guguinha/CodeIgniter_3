@@ -1,6 +1,7 @@
-# Blog-CodeIgniter
--- Em andamento!!
+# Blog-CodeIgniter!!
 
-Blog Feito durante o Curso de CodeIgniter 3
+Um Blog Completo feito durante o Curso do framework CodeIgniter 3
 
-link: http://devaugustoblog.000webhostapp.com 
+link: http://augustoguimaraes.com 
+
+Aberto a sugestões e melhorias, se quiser contribuir só da um fork no projeto e enviar um pull Request.
